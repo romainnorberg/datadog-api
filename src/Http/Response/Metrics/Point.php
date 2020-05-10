@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Romainnorberg\DataDogApi\Models;
+namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
 
 class Point
 {

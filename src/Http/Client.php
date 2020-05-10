@@ -9,11 +9,16 @@
 
 namespace Romainnorberg\DataDogApi\Http;
 
+use Romainnorberg\DataDogApi\Http\Request\Request;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Client implements ClientInterface
 {
+    public const BASE_URL = 'https://api.datadoghq.com/api/v1/';
+    public const STATUS_PAGE = 'https://status.datadoghq.com';
+    public const STATUS_TWITTER = 'https://twitter.com/datadogops';
+
     private HttpClientInterface $httpclient;
 
     public function __construct(
@@ -23,17 +28,18 @@ class Client implements ClientInterface
         $this->httpclient = HttpClient::create(
             [
                 'headers' => [
-                    'DD-API-KEY' => $apiKey,
+                    'DD-API-KEY'         => $apiKey,
                     'DD-APPLICATION-KEY' => $applicationKey,
                 ],
+                'base_uri' => self::BASE_URL,
             ]
         );
     }
 
-    public function request(string $method, string $url, array $options): array
+    public function request(string $method, string $url, array $options): string
     {
-        $response = $this->httpclient->request($method, $url, $options);
+        $request = new Request($this->httpclient);
 
-        return $response->toArray();
+        return $request->request($method, $url, $options);
     }
 }

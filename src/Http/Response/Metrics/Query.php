@@ -7,9 +7,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Romainnorberg\DataDogApi\Http;
+namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
 
-interface ClientInterface
+class Query
 {
-    public function request(string $method, string $url, array $options): string;
+    /**
+     * @var Serie[]
+     */
+    public array $series = [];
 }

@@ -9,12 +9,12 @@
 
 namespace Romainnorberg\DataDogApi\Exceptions;
 
-use DateTime;
+use DateTimeInterface;
 use Exception;
 
-class InvalidPeriod extends Exception
+final class InvalidPeriod extends Exception
 {
-    public static function startDateCannotBeAfterEndDate(DateTime $startDate, DateTime $endDate)
+    public static function startDateCannotBeAfterEndDate(DateTimeInterface $startDate, DateTimeInterface $endDate): self
     {
         return new static("Start date `{$startDate->format('Y-m-d')}` cannot be after end date `{$endDate->format('Y-m-d')}`.");
     }

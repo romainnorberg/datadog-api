@@ -2,7 +2,8 @@
     "name": "romainnorberg/datadog-api",
     "description": "Fetch specific metrics from datadog",
     "keywords": [
-        "datadog"
+        "datadog",
+        "datadog-api"
     ],
     "autoload": {
         "psr-4": {
@@ -17,13 +18,14 @@
     "type": "library",
     "require": {
         "php": "^7.4",
+        "ext-json": "*",
+        "netresearch/jsonmapper": "^2.1",
         "symfony/config": "^5.0",
         "symfony/dependency-injection": "^5.0",
         "symfony/http-client": "^5.0",
         "symfony/yaml": "^5.0"
     },
     "require-dev": {
-        "ext-json": "*",
         "phpunit/phpunit": "^9.1",
         "symfony/var-dumper": "^5.0"
     },

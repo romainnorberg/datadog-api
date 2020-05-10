@@ -11,10 +11,15 @@ namespace Romainnorberg\DataDogApi\Exceptions;
 
 use Exception;
 
-class InvalidCredentials extends Exception
+final class InvalidCredentials extends Exception
 {
-    public static function credentialsAreMissing()
+    public static function credentialsAreMissing(): self
     {
         return new static('Credentials are missing. You can provide credentials on instantiation or there are loaded from ENV.');
+    }
+
+    public static function clientException(string $message, ?int $code = 0): self
+    {
+        return new static(sprintf("Client return an exception (message: %s / code %s). \n%s", $message, $code, Extras::extraMessage()));
     }
 }

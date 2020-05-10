@@ -9,20 +9,20 @@
 
 namespace Romainnorberg\DataDogApi\Middlewares;
 
-use DateTime;
+use DateTimeInterface;
 use Romainnorberg\DataDogApi\Exceptions\InvalidPeriod;
 
-class Period
+final class Period
 {
-    public DateTime $from;
-    public DateTime $to;
+    public DateTimeInterface $from;
+    public DateTimeInterface $to;
 
-    public static function create(DateTime $from, DateTime $to): self
+    public static function create(DateTimeInterface $from, DateTimeInterface $to): self
     {
         return new static($from, $to);
     }
 
-    public function __construct(DateTime $from, DateTime $to)
+    public function __construct(DateTimeInterface $from, DateTimeInterface $to)
     {
         if ($from > $to) {
             throw InvalidPeriod::startDateCannotBeAfterEndDate($from, $to);

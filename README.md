@@ -1,6 +1,15 @@
 # DataDog-api
 A lightweight packages to fetch metrics from datadog
 
+## Scope
+- Metrics  [doc](https://docs.datadoghq.com/api/v1/metrics/)
+    - Get active list
+    - Get metadata
+    - Query timeseries points
+    - ~~Edit metadata~~
+    - ~~Search~~
+    - ~~Submit metrics~~
+
 ## Installation
 
 You can install the package via composer:
@@ -31,7 +40,8 @@ use Romainnorberg\DataDogApi\DataDogApi;
 $datadogApi = new DataDogApi(); // Using env 
 
 $metrics = $datadogApi
-            ->timeserie()
+            ->metrics()
+            ->query()
             ->from((new \DateTime())->sub(new \DateInterval('PT1H')))
             ->to(new \DateTime())
             ->query('avg:worker.memory.heapUsed{*}')

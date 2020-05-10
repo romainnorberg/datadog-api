@@ -17,6 +17,10 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
+        // Binary operators should be surrounded by space as configured.
+        'binary_operator_spaces' => [
+            'operators' => ['=>' => 'align_single_space_minimal'],
+        ],
         'array_syntax' => ['syntax' => 'short'],
         'header_comment' => ['header' => $fileHeaderComment, 'separate' => 'both'],
         'linebreak_after_opening_tag' => true,
@@ -32,6 +36,7 @@ return PhpCsFixer\Config::create()
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
+        'trailing_comma_in_multiline_array' => true
     ])
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/.php_cs.cache')

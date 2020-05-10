@@ -10,14 +10,15 @@
 namespace Romainnorberg\DataDogApi;
 
 use Romainnorberg\DataDogApi\Exceptions\InvalidCredentials;
-use Romainnorberg\DataDogApi\Services\Timeserie;
+use Romainnorberg\DataDogApi\Services\Metrics;
+use Romainnorberg\DataDogApi\Services\Validate;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class DataDogApi
 {
-    private ContainerBuilder $containerBuilder;
+    private ContainerBuilder $container;
     private ?string $apiKey;
     private ?string $applicationKey;
 
@@ -32,13 +33,14 @@ final class DataDogApi
         $this->setContainer();
     }
 
-    // health
-
-    // rate limiting
-
-    public function timeserie(): Timeserie
+    public function validate()
     {
-        return $this->containerBuilder->get(Timeserie::class);
+        return $this->container->get(Validate::class)();
+    }
+
+    public function metrics(): Metrics
+    {
+        return $this->container->get(Metrics::class);
     }
 
     private function assertCredentials()
@@ -55,14 +57,14 @@ final class DataDogApi
 
     private function setContainer(): void
     {
-        $this->containerBuilder = new ContainerBuilder();
-        $loader = new YamlFileLoader($this->containerBuilder, new FileLocator(__DIR__));
+        $this->container = new ContainerBuilder();
+        $loader = new YamlFileLoader($this->container, new FileLocator(__DIR__));
         $loader->load('../config/services.yaml');
 
-        $this->containerBuilder->setParameter('credential.api_key', $this->apiKey);
-        $this->containerBuilder->setParameter('credential.application_key', $this->applicationKey);
+        $this->container->setParameter('credential.api_key', $this->apiKey);
+        $this->container->setParameter('credential.application_key', $this->applicationKey);
 
-        $this->containerBuilder->compile();
+        $this->container->compile();
     }
 
     private function loadCredentialFromEnv(): void

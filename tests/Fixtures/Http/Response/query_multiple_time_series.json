@@ -1,0 +1,209 @@
+{
+  "status": "ok",
+  "res_type": "time_series",
+  "from_date": 1589111120000,
+  "series": [
+    {
+      "end": 1589117129000,
+      "attributes": {},
+      "metric": "system.cpu.idle",
+      "interval": 30,
+      "tag_set": [
+        "host:staging"
+      ],
+      "start": 1589111130000,
+      "length": 200,
+      "query_index": 0,
+      "aggr": null,
+      "scope": "host:staging",
+      "pointlist": [
+        [
+          1589111130000.0,
+          79.70921325683594
+        ],
+        [
+          1589111160000.0,
+          79.65263748168945
+        ],
+        [
+          1589111190000.0,
+          79.18579483032227
+        ],
+        [
+          1589111220000.0,
+          79.7603759765625
+        ],
+        [
+          1589111250000.0,
+          78.3388442993164
+        ]
+      ],
+      "expression": "system.cpu.idle{host:staging}",
+      "unit": null,
+      "display_name": "system.cpu.idle"
+    },
+    {
+      "end": 1589117129000,
+      "attributes": {},
+      "metric": "system.cpu.idle",
+      "interval": 30,
+      "tag_set": [
+        "host:frontend2"
+      ],
+      "start": 1589111130000,
+      "length": 200,
+      "query_index": 0,
+      "aggr": null,
+      "scope": "host:frontend2",
+      "pointlist": [
+        [
+          1589111130000.0,
+          91.2189826965332
+        ],
+        [
+          1589111160000.0,
+          91.14789199829102
+        ],
+        [
+          1589111190000.0,
+          91.01398468017578
+        ],
+        [
+          1589111220000.0,
+          91.08623886108398
+        ],
+        [
+          1589111250000.0,
+          97.22039031982422
+        ]
+      ],
+      "expression": "system.cpu.idle{host:frontend2}",
+      "unit": null,
+      "display_name": "system.cpu.idle"
+    },
+    {
+      "end": 1589117129000,
+      "attributes": {},
+      "metric": "system.cpu.idle",
+      "interval": 30,
+      "tag_set": [
+        "host:frontend1"
+      ],
+      "start": 1589111130000,
+      "length": 200,
+      "query_index": 0,
+      "aggr": null,
+      "scope": "host:frontend1",
+      "pointlist": [
+        [
+          1589111130000.0,
+          99.60391616821289
+        ],
+        [
+          1589111160000.0,
+          99.59131622314453
+        ],
+        [
+          1589111190000.0,
+          99.67059707641602
+        ],
+        [
+          1589111220000.0,
+          99.55794525146484
+        ],
+        [
+          1589111250000.0,
+          99.59136199951172
+        ]
+      ],
+      "expression": "system.cpu.idle{host:frontend1}",
+      "unit": null,
+      "display_name": "system.cpu.idle"
+    },
+    {
+      "end": 1589117129000,
+      "attributes": {},
+      "metric": "system.cpu.idle",
+      "interval": 30,
+      "tag_set": [
+        "host:backend1"
+      ],
+      "start": 1589111130000,
+      "length": 200,
+      "query_index": 0,
+      "aggr": null,
+      "scope": "host:backend1",
+      "pointlist": [
+        [
+          1589111130000.0,
+          83.98397445678711
+        ],
+        [
+          1589111160000.0,
+          84.69211959838867
+        ],
+        [
+          1589111190000.0,
+          84.2644271850586
+        ],
+        [
+          1589111220000.0,
+          84.32436752319336
+        ],
+        [
+          1589111250000.0,
+          98.66961669921875
+        ]
+      ],
+      "expression": "system.cpu.idle{host:backend1}",
+      "unit": null,
+      "display_name": "system.cpu.idle"
+    },
+    {
+      "end": 1589117129000,
+      "attributes": {},
+      "metric": "system.cpu.idle",
+      "interval": 30,
+      "tag_set": [
+        "host:frontend3"
+      ],
+      "start": 1589111130000,
+      "length": 200,
+      "query_index": 0,
+      "aggr": null,
+      "scope": "host:frontend3",
+      "pointlist": [
+        [
+          1589111130000.0,
+          99.74153137207031
+        ],
+        [
+          1589111160000.0,
+          99.82061767578125
+        ],
+        [
+          1589111190000.0,
+          99.67511749267578
+        ],
+        [
+          1589111220000.0,
+          99.56182479858398
+        ],
+        [
+          1589111250000.0,
+          99.79137802124023
+        ]
+      ],
+      "expression": "system.cpu.idle{host:frontend3}",
+      "unit": null,
+      "display_name": "system.cpu.idle"
+    }
+  ],
+  "to_date": 1589117120000,
+  "resp_version": 1,
+  "query": "system.cpu.idle{*}by{host}",
+  "message": "",
+  "group_by": [
+    "host"
+  ]
+}
