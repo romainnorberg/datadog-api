@@ -1,0 +1,43 @@
+{
+    "name": "romainnorberg/datadog-api",
+    "description": "Fetch specific metrics from datadog",
+    "keywords": [
+        "datadog"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Romainnorberg\\DataDogApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Romainnorberg\\DataDogApi\\Tests\\": "tests"
+        }
+    },
+    "type": "library",
+    "require": {
+        "php": "^7.4",
+        "symfony/config": "^5.0",
+        "symfony/dependency-injection": "^5.0",
+        "symfony/http-client": "^5.0",
+        "symfony/yaml": "^5.0"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "phpunit/phpunit": "^9.1",
+        "symfony/var-dumper": "^5.0"
+    },
+    "authors": [
+        {
+            "name": "Romain Norberg",
+            "email": "romainnorberg@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
