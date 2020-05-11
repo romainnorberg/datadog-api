@@ -1,4 +1,11 @@
+**DO NOT USE YET, PACKAGE IN DEVELOPMENT**
+
 # DataDog-api
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/romainnorberg/datadog-api.svg?style=flat-square)](https://packagist.org/packages/romainnorberg/datadog-api)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/romainnorberg/datadog-api/run-tests?label=tests)](https://github.com/romainnorberg/datadog-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/romainnorberg/datadog-api.svg?style=flat-square)](https://packagist.org/packages/romainnorberg/datadog-api/stats)
+
 A lightweight packages to fetch metrics from datadog
 
 ## Scope
