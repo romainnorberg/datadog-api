@@ -11,7 +11,7 @@ namespace Romainnorberg\DataDogApi\Services;
 
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 
-class Validate implements Service
+class Validate
 {
     private ClientInterface $client;
 
@@ -20,7 +20,7 @@ class Validate implements Service
         $this->client = $client;
     }
 
-    public function __invoke()
+    public function __invoke(): bool
     {
         $this->client->request('GET', 'validate', []);
 

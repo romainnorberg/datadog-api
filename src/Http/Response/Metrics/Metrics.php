@@ -7,9 +7,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Romainnorberg\DataDogApi\Services;
+namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
 
-interface Service
+class Metrics
 {
-    public function handle(): self;
+    public array $metrics = [];
+    public string $from;
+    public ?string $host;
 }

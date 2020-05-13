@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "res_type": "time_series",
+  "from_date": 1589111120000,
+  "series": [ ],
+  "to_date": 1589117120000,
+  "resp_version": 1,
+  "query": "system.cpu.idle{*}by{host}",
+  "message": "",
+  "group_by": []
+}

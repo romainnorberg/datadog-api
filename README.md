@@ -6,13 +6,13 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/romainnorberg/datadog-api/run-tests?label=tests)](https://github.com/romainnorberg/datadog-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/romainnorberg/datadog-api.svg?style=flat-square)](https://packagist.org/packages/romainnorberg/datadog-api/stats)
 
-A lightweight packages to fetch metrics from datadog
+A lightweight packages to fetch metrics from Datadog
 
-## Scope
+## Actual scope
 - Metrics  [doc](https://docs.datadoghq.com/api/v1/metrics/)
-    - Get active list
-    - Get metadata
-    - Query timeseries points
+    - ✅ Get active list
+    - ✅ Get metadata
+    - ✅ Query timeseries points
     - ~~Edit metadata~~
     - ~~Search~~
     - ~~Submit metrics~~

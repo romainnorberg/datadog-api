@@ -13,6 +13,9 @@ use Exception;
 
 final class QuotaExceeded extends Exception
 {
+    /**
+     * @param array<string> $headers
+     */
     public static function limitReached(string $message, ?int $code = 0, ?array $headers = []): self
     {
         return new static(sprintf('Client return an exception (message: `%s` / code: %s / quota reset in ~%d seconds).', $message, $code, $headers['X-RateLimit-Reset'] ?? '?'));

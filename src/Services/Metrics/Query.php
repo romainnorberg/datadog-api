@@ -74,7 +74,7 @@ class Query implements Service
         return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new \Romainnorberg\DataDogApi\Http\Response\Metrics\Query());
     }
 
-    public function maxPointBySerie()
+    public function maxPointBySerie(): array
     {
         $maxBySerie = [];
         foreach ($this->response()->series as $serie) {
@@ -93,9 +93,13 @@ class Query implements Service
         return $maxBySerie;
     }
 
-    public function maxPoint()
+    public function maxPoint(): ?Point
     {
         $maxBySerie = $this->maxPointBySerie();
+
+        if (empty($maxBySerie)) {
+            return null;
+        }
 
         usort($maxBySerie, static function ($a, $b) {
             return $a['point'][1] <=> $b['point'][1];

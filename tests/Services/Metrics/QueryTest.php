@@ -39,7 +39,7 @@ class QueryTest extends TestCase
      */
     public function get_max_value_of_point_list_with_one_serie(): void
     {
-        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/query_simple_time_series.json');
+        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_simple_time_series.json');
         $service = new Query(new TimeSerieFakeCLient($requestResponse));
         $metric = $service
             ->from(new DateTime())
@@ -59,7 +59,7 @@ class QueryTest extends TestCase
      */
     public function get_max_value_of_point_list_with_multiple_serie(): void
     {
-        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/query_multiple_time_series.json');
+        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_multiple_time_series.json');
         $service = new Query(new TimeSerieFakeCLient($requestResponse));
         $metric = $service
             ->from(new DateTime())
@@ -72,6 +72,22 @@ class QueryTest extends TestCase
         $expectedPoint->value = 99.82061767578125;
 
         $this->assertEquals($expectedPoint, $metric->maxPoint());
+    }
+
+    /**
+     * @test
+     */
+    public function get_max_value_of_point_list_with_empty_response(): void
+    {
+        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_empty.json');
+        $service = new Query(new TimeSerieFakeCLient($requestResponse));
+        $metric = $service
+            ->from(new DateTime())
+            ->to(new DateTime())
+            ->query('system.cpu.idle{*}by{host}')
+            ->handle();
+
+        $this->assertNull($metric->maxPoint());
     }
 }
 

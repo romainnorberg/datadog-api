@@ -25,4 +25,9 @@ class Metrics
     {
         return $this->container->get(Query::class);
     }
+
+    public function list(): Metrics\Metrics
+    {
+        return $this->container->get(Metrics\Metrics::class);
+    }
 }

@@ -33,7 +33,7 @@ final class DataDogApi
         $this->setContainer();
     }
 
-    public function validate()
+    public function validate(): bool
     {
         return $this->container->get(Validate::class)();
     }
@@ -43,7 +43,7 @@ final class DataDogApi
         return $this->container->get(Metrics::class);
     }
 
-    private function assertCredentials()
+    private function assertCredentials(): void
     {
         // try to load credentials from env
         if (null === $this->apiKey || null === $this->applicationKey) {
