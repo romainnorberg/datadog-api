@@ -9,7 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
 
-class Metrics
+class MetricsResponse
 {
     public array $metrics = [];
     public string $from;

@@ -9,6 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Services;
 
+use Romainnorberg\DataDogApi\Services\Metrics\MetricMetadata;
 use Romainnorberg\DataDogApi\Services\Metrics\Query;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -24,6 +25,11 @@ class Metrics
     public function query(): Query
     {
         return $this->container->get(Query::class);
+    }
+
+    public function metricMetadata(): MetricMetadata
+    {
+        return $this->container->get(MetricMetadata::class);
     }
 
     public function list(): Metrics\Metrics

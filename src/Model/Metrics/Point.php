@@ -7,12 +7,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
+namespace Romainnorberg\DataDogApi\Model\Metrics;
 
-class Query
+class Point
 {
-    /**
-     * @var Serie[]
-     */
-    public array $series = [];
+    public int $timestamp;
+    public int $value;
 }

@@ -9,8 +9,10 @@
 
 namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
 
-class Point
+class QueryResponse
 {
-    public int $timestamp;
-    public int $value;
+    /**
+     * @var \Romainnorberg\DataDogApi\Model\Metrics\Serie[]
+     */
+    public array $series = [];
 }

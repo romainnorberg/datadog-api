@@ -1,0 +1,9 @@
+{
+  "description": null,
+  "short_name": "py version",
+  "integration": "agent_metrics",
+  "statsd_interval": null,
+  "per_unit": null,
+  "type": "gauge",
+  "unit": null
+}

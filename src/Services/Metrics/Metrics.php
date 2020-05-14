@@ -54,11 +54,11 @@ class Metrics implements Service
         return $this;
     }
 
-    public function response(): \Romainnorberg\DataDogApi\Http\Response\Metrics\Metrics
+    public function response(): \Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse
     {
         $mapper = new JsonMapper();
 
-        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new \Romainnorberg\DataDogApi\Http\Response\Metrics\Metrics());
+        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new \Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse());
     }
 
     public function hasMetric(string $metricName): bool

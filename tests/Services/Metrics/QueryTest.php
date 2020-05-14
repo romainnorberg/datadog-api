@@ -14,7 +14,7 @@ use DateTime;
 use PHPUnit\Framework\TestCase;
 use Romainnorberg\DataDogApi\Exceptions\InvalidPeriod;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
-use Romainnorberg\DataDogApi\Http\Response\Metrics\Point;
+use Romainnorberg\DataDogApi\Model\Metrics\Point;
 use Romainnorberg\DataDogApi\Services\Metrics\Query;
 
 class QueryTest extends TestCase

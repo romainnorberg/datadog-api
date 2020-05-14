@@ -12,8 +12,9 @@ namespace Romainnorberg\DataDogApi\Services\Metrics;
 use DateTimeInterface;
 use JsonMapper;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
-use Romainnorberg\DataDogApi\Http\Response\Metrics\Point;
+use Romainnorberg\DataDogApi\Http\Response\Metrics\QueryResponse;
 use Romainnorberg\DataDogApi\Middlewares\Period;
+use Romainnorberg\DataDogApi\Model\Metrics\Point;
 use Romainnorberg\DataDogApi\Services\Service;
 
 class Query implements Service
@@ -67,11 +68,11 @@ class Query implements Service
         return $this;
     }
 
-    public function response(): \Romainnorberg\DataDogApi\Http\Response\Metrics\Query
+    public function response(): QueryResponse
     {
         $mapper = new JsonMapper();
 
-        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new \Romainnorberg\DataDogApi\Http\Response\Metrics\Query());
+        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new QueryResponse());
     }
 
     public function maxPointBySerie(): array

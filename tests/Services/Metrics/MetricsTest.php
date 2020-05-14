@@ -19,7 +19,7 @@ class MetricsTest extends TestCase
     /**
      * @test
      */
-    public function get_metrics_list(): void
+    public function metrics_list(): void
     {
         $metricList = $this->getMetrics();
 

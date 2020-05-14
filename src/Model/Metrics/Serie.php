@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Romainnorberg\DataDogApi\Http\Response\Metrics;
+namespace Romainnorberg\DataDogApi\Model\Metrics;
 
 class Serie
 {
