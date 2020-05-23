@@ -12,6 +12,7 @@ namespace Romainnorberg\DataDogApi\Http\Request;
 use Romainnorberg\DataDogApi\Exceptions\InvalidCredentials;
 use Romainnorberg\DataDogApi\Exceptions\NotFound;
 use Romainnorberg\DataDogApi\Exceptions\QuotaExceeded;
+use Romainnorberg\DataDogApi\Exceptions\ServerException;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
@@ -47,6 +48,13 @@ class Request
             // not found
             if (404 === $response->getStatusCode()) {
                 throw NotFound::error(implode(',', $content->errors), $response->getStatusCode());
+            }
+        } catch (\Symfony\Component\HttpClient\Exception\ServerException $serverException) {
+            $response = $serverException->getResponse();
+
+            // gateway timeout
+            if (504 === $response->getStatusCode()) {
+                throw ServerException::gatewayTimeout($serverException->getMessage(), $response->getStatusCode());
             }
         }
 

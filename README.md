@@ -55,6 +55,85 @@ $metrics = $datadogApi
             ->handle();
 ```
 
+### Get max values for a specific period
+
+|----^-------|
+
+Using `$metrics->maxPoint()` provide the highest point for the requested period.
+
+```php
+use Romainnorberg\DataDogApi\DataDogApi;
+
+$datadogApi = new DataDogApi(); // Using env 
+
+$metrics = $datadogApi
+            ...
+            ->query('sum:nginx.net.request_per_s{*}')
+            ->handle();
+
+$max = $metrics->maxPoint();
+/**
+* Romainnorberg\DataDogApi\Model\Metrics\Point {
+    +timestamp: 1588269614000
+    +value: 68.389493934967
+  }
+ */
+```
+
+Using `$metrics->maxPointBySerie()` provide highest points by serie for the requested period. By example if you query by host, you can retrieve max point by host.
+
+```php
+use Romainnorberg\DataDogApi\DataDogApi;
+
+$datadogApi = new DataDogApi(); // Using env 
+
+$metrics = $datadogApi
+            ...
+            ->query('sum:nginx.net.request_per_s{*} by{host}')
+            ->handle();
+
+$maxBySerie = $metrics->maxPointBySerie();
+
+/*
+ * array:4 [
+     0 => array:2 [
+       "serie" => Romainnorberg\DataDogApi\Model\Metrics\Serie^ {#292
+         +aggr: "sum"
+         +end: 1588269659000
+         +expression: "sum:nginx.net.request_per_s{host:staging}"
+         +interval: 1
+         +length: 32
+         +metric: "nginx.net.request_per_s"
+         +pointlist: []
+         +scope: "host:staging"
+         +start: 1588269548000
+       }
+       "point" => array:2 [
+         0 => 1588269594000.0
+         1 => 1.1333215343856
+       ]
+     ]
+     1 => array:2 [
+       "serie" => Romainnorberg\DataDogApi\Model\Metrics\Serie^ {#70
+         +aggr: "sum"
+         +end: 1588269659000
+         +expression: "sum:nginx.net.request_per_s{host:frontend1}"
+         +interval: 1
+         +length: 32
+         +metric: "nginx.net.request_per_s"
+         +pointlist: []
+         +scope: "host:frontend1"
+         +start: 1588269548000
+       }
+       "point" => array:2 [
+         0 => 1588269608000.0
+         1 => 51.069667634348
+       ]
+     ]
+     ...
+ */
+```
+
 ## Testing
 
 ``` bash

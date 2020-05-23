@@ -12,6 +12,7 @@ namespace Romainnorberg\DataDogApi\Services\Metrics;
 use DateTimeInterface;
 use JsonMapper;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
+use Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse;
 use Romainnorberg\DataDogApi\Services\Service;
 
 class Metrics implements Service
@@ -54,11 +55,11 @@ class Metrics implements Service
         return $this;
     }
 
-    public function response(): \Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse
+    public function response(): MetricsResponse
     {
         $mapper = new JsonMapper();
 
-        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new \Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse());
+        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new MetricsResponse());
     }
 
     public function hasMetric(string $metricName): bool

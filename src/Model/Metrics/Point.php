@@ -12,5 +12,5 @@ namespace Romainnorberg\DataDogApi\Model\Metrics;
 class Point
 {
     public int $timestamp;
-    public int $value;
+    public $value;
 }

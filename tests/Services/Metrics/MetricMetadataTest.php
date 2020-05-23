@@ -11,6 +11,7 @@ namespace Romainnorberg\DataDogApi\Services\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Romainnorberg\DataDogApi\Exceptions\NotFound;
+use Romainnorberg\DataDogApi\Exceptions\ServerException;
 use Romainnorberg\DataDogApi\Http\Client;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 use Romainnorberg\DataDogApi\Http\Request\Request;
@@ -29,11 +30,60 @@ class MetricMetadataTest extends TestCase
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('Client return an not found error (message: metric_name not found / code 404).');
 
-        $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/metric_unknown.json');
-        $service = new MetricMetadata(new MetricMetadataFailureFakeCLient($requestResponse));
+        $response = new class() implements ClientInterface {
+            public function request(string $method, string $url, array $options): string
+            {
+                $responses = [
+                    new MockResponse(file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/metric_unknown.json'), [
+                        'http_code' => 404,
+                    ]),
+                ];
+
+                $httpClient = new MockHttpClient($responses);
+                $request = new Request($httpClient);
+
+                return $request->request($method, Client::BASE_URL.$url, $options);
+            }
+        };
+
+        $service = new MetricMetadata($response);
 
         $metricMetadata = $service
             ->metricName('unknown.metric')
+            ->handle();
+
+        $this->assertNull($metricMetadata);
+    }
+
+    /**
+     * @test
+     */
+    public function metric_metadata_request_timeout(): void
+    {
+        $this->expectException(ServerException::class);
+        $this->expectExceptionMessage('Client server return a Gateway Timeout (message: HTTP 504 returned for "https://api.datadoghq.com/api/v1/metrics/mysql.binlog.disk_use". / code 504). 
+Check status page: https://status.datadoghq.com or twitter: https://twitter.com/datadogops');
+
+        $response = new class() implements ClientInterface {
+            public function request(string $method, string $url, array $options): string
+            {
+                $responses = [
+                    new MockResponse('', [
+                        'http_code' => 504,
+                    ]),
+                ];
+
+                $httpClient = new MockHttpClient($responses);
+                $request = new Request($httpClient);
+
+                return $request->request($method, Client::BASE_URL.$url, $options);
+            }
+        };
+
+        $service = new MetricMetadata($response);
+
+        $metricMetadata = $service
+            ->metricName('mysql.binlog.disk_use')
             ->handle();
 
         $this->assertNull($metricMetadata);
@@ -92,29 +142,5 @@ class MetricMetadataFakeCLient implements ClientInterface
     public function request(string $method, string $url, array $options): string
     {
         return $this->requestResponse;
-    }
-}
-
-class MetricMetadataFailureFakeCLient implements ClientInterface
-{
-    private $requestResponse;
-
-    public function __construct($requestResponse = null)
-    {
-        $this->requestResponse = $requestResponse;
-    }
-
-    public function request(string $method, string $url, array $options): string
-    {
-        $responses = [
-            new MockResponse($this->requestResponse, [
-                'http_code' => 404,
-            ]),
-        ];
-
-        $httpClient = new MockHttpClient($responses);
-        $request = new Request($httpClient);
-
-        return $request->request($method, Client::BASE_URL.$url, $options);
     }
 }
