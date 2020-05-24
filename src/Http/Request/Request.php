@@ -25,15 +25,20 @@ class Request
         $this->httpClient = $httpClient;
     }
 
-    public function request(string $method, string $url, array $options): string
+    public function request(string $method, string $url, ?array $options = null): string
     {
         try {
-            $response = $this->httpClient->request($method, $url, $options);
+            $response = $this->httpClient->request($method, $url, $options ?? []);
 
             return $response->getContent();
         } catch (ClientException $clientException) {
             $response = $clientException->getResponse();
-            $content = json_decode($response->getContent(false), false, 512, JSON_THROW_ON_ERROR);
+            try {
+                $content = json_decode($response->getContent(false), false, 512, JSON_THROW_ON_ERROR);
+            } catch (\Exception $exception) {
+                $content = new \stdClass();
+                $content->errors = [];
+            }
 
             // rate limit
             if (429 === $response->getStatusCode()) {
@@ -58,6 +63,6 @@ class Request
             }
         }
 
-        return '{}';
+        return '';
     }
 }

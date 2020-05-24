@@ -26,7 +26,7 @@ class ValidateTest extends TestCase
     public function should_thrown_error_when_invalid(): void
     {
         $this->expectException(InvalidCredentials::class);
-        $this->expectExceptionMessage(sprintf('Client return an exception (message: %s / code %s)', 'API key required', 403));
+        $this->expectExceptionMessage(sprintf('Client return an exception (message: %s / code %s).', 'API key required', 403));
 
         $validate = new Validate(new ValidateFakeCLient());
         $validate();

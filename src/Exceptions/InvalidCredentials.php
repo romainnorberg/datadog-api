@@ -20,6 +20,6 @@ final class InvalidCredentials extends Exception
 
     public static function clientException(string $message, ?int $code = 0): self
     {
-        return new static(sprintf("Client return an exception (message: %s / code %s). \n%s", $message, $code, Extras::extraMessage()));
+        return new static(sprintf('Client return an exception (message: %s / code %s). %s', $message, $code, Extras::extraMessage()));
     }
 }

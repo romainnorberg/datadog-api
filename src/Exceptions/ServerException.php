@@ -15,6 +15,6 @@ final class ServerException extends Exception
 {
     public static function gatewayTimeout(string $message, ?int $code = 0): self
     {
-        return new static(sprintf("Client server return a Gateway Timeout (message: %s / code %s). \n%s", $message, $code, Extras::extraMessage()));
+        return new static(sprintf('Client server return a Gateway Timeout (message: %s / code %s). %s', $message, $code, Extras::extraMessage()));
     }
 }

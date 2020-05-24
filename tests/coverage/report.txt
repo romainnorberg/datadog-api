@@ -1,12 +1,12 @@
 
 
 Code Coverage Report:      
-  2020-05-24 03:36:28      
+  2020-05-24 04:05:49      
                            
  Summary:                  
-  Classes: 62.50% (10/16)  
-  Methods: 77.27% (34/44)  
-  Lines:   90.00% (117/130)
+  Classes: 68.75% (11/16)  
+  Methods: 79.55% (35/44)  
+  Lines:   90.98% (121/133)
 
 \Romainnorberg\DataDogApi::Romainnorberg\DataDogApi\DataDogApi
   Methods:  66.67% ( 4/ 6)   Lines:  90.91% ( 20/ 22)
@@ -25,7 +25,7 @@ Code Coverage Report:
 \Romainnorberg\DataDogApi\Http::Romainnorberg\DataDogApi\Http\Client
   Methods:  50.00% ( 1/ 2)   Lines:  71.43% (  5/  7)
 \Romainnorberg\DataDogApi\Http\Request::Romainnorberg\DataDogApi\Http\Request\Request
-  Methods:  50.00% ( 1/ 2)   Lines:  94.44% ( 17/ 18)
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% ( 21/ 21)
 \Romainnorberg\DataDogApi\Http\Response\Metrics::Romainnorberg\DataDogApi\Http\Response\Metrics\MetricMetadataResponse
   Methods:  ( 0/ 0)   Lines:  (  0/  0)
 \Romainnorberg\DataDogApi\Http\Response\Metrics::Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse

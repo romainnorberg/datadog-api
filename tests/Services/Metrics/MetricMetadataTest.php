@@ -61,8 +61,7 @@ class MetricMetadataTest extends TestCase
     public function metric_metadata_request_timeout(): void
     {
         $this->expectException(ServerException::class);
-        $this->expectExceptionMessage('Client server return a Gateway Timeout (message: HTTP 504 returned for "https://api.datadoghq.com/api/v1/metrics/mysql.binlog.disk_use". / code 504). 
-Check status page: https://status.datadoghq.com or twitter: https://twitter.com/datadogops');
+        $this->expectExceptionMessage('Client server return a Gateway Timeout (message: HTTP 504 returned for "https://api.datadoghq.com/api/v1/metrics/mysql.binlog.disk_use". / code 504).');
 
         $response = new class() implements ClientInterface {
             public function request(string $method, string $url, array $options): string
