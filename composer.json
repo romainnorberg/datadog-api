@@ -5,6 +5,7 @@
         "datadog",
         "datadog-api"
     ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Romainnorberg\\DataDogApi\\": "src"
