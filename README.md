@@ -1,15 +1,21 @@
-**DO NOT USE YET, PACKAGE IN DEVELOPMENT. NON OFFICIAL PACKAGE**
-
 <p align="center">
-    <img src=".github/media/logo-horizontal.png?raw=true" width="600" alt="Datadog API">
+    <p align="center">
+        <strong>DO NOT USE YET, PACKAGE IN DEVELOPMENT. NON OFFICIAL PACKAGE</strong>
+    </p>
+    <p align="center">
+        <img src=".github/media/logo-horizontal.png?raw=true" width="600" alt="Datadog API">
+    </p>
+    <p class="rich-diff-level-zero" align="center">
+        <a href="https://packagist.org/packages/romainnorberg/datadog-api" rel="nofollow" class="rich-diff-level-one"><img src="https://img.shields.io/packagist/v/romainnorberg/datadog-api.svg?style=flat-square" alt="Latest Version on Packagist" style="max-width:100%;"></a>
+        <a href="https://github.com/romainnorberg/datadog-api/actions?query=workflow%3Arun-tests+branch%3Amaster" class="rich-diff-level-one"><img src="https://img.shields.io/github/workflow/status/romainnorberg/datadog-api/run-tests?label=tests" alt="GitHub Tests Action Status" style="max-width:100%;"></a>
+    <a href="https://codecov.io/gh/romainnorberg/datadog-api" rel="nofollow" class="rich-diff-level-one"><img src="https://codecov.io/gh/romainnorberg/datadog-api/branch/master/graph/badge.svg" alt="codecov" style="max-width:100%;"></a>
+    <a href="https://packagist.org/packages/romainnorberg/datadog-api/stats" rel="nofollow" class="rich-diff-level-one"><img src="https://img.shields.io/packagist/dt/romainnorberg/datadog-api.svg?style=flat-square" alt="Total Downloads" style="max-width:100%;"></a></p>
+    <p align="center">
+        The missing DataDog API PHP Wrapper! A lightweight package to fetch metrics from Datadog
+    </p>
 </p>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/romainnorberg/datadog-api.svg?style=flat-square)](https://packagist.org/packages/romainnorberg/datadog-api)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/romainnorberg/datadog-api/run-tests?label=tests)](https://github.com/romainnorberg/datadog-api/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![codecov](https://codecov.io/gh/romainnorberg/datadog-api/branch/master/graph/badge.svg)](https://codecov.io/gh/romainnorberg/datadog-api)
-[![Total Downloads](https://img.shields.io/packagist/dt/romainnorberg/datadog-api.svg?style=flat-square)](https://packagist.org/packages/romainnorberg/datadog-api/stats)
-
-The missing DataDog API PHP Wrapper! A lightweight package to fetch metrics from Datadog
+***
 
 ## Actual scope
 - Metrics  [doc](https://docs.datadoghq.com/api/v1/metrics/)
