@@ -1,0 +1,50 @@
+
+
+Code Coverage Report:      
+  2020-05-24 03:36:28      
+                           
+ Summary:                  
+  Classes: 62.50% (10/16)  
+  Methods: 77.27% (34/44)  
+  Lines:   90.00% (117/130)
+
+\Romainnorberg\DataDogApi::Romainnorberg\DataDogApi\DataDogApi
+  Methods:  66.67% ( 4/ 6)   Lines:  90.91% ( 20/ 22)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\Extras
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\InvalidCredentials
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  2/  2)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\InvalidPeriod
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\NotFound
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\QuotaExceeded
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Romainnorberg\DataDogApi\Exceptions::Romainnorberg\DataDogApi\Exceptions\ServerException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+\Romainnorberg\DataDogApi\Http::Romainnorberg\DataDogApi\Http\Client
+  Methods:  50.00% ( 1/ 2)   Lines:  71.43% (  5/  7)
+\Romainnorberg\DataDogApi\Http\Request::Romainnorberg\DataDogApi\Http\Request\Request
+  Methods:  50.00% ( 1/ 2)   Lines:  94.44% ( 17/ 18)
+\Romainnorberg\DataDogApi\Http\Response\Metrics::Romainnorberg\DataDogApi\Http\Response\Metrics\MetricMetadataResponse
+  Methods:  ( 0/ 0)   Lines:  (  0/  0)
+\Romainnorberg\DataDogApi\Http\Response\Metrics::Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse
+  Methods:  ( 0/ 0)   Lines:  (  0/  0)
+\Romainnorberg\DataDogApi\Http\Response\Metrics::Romainnorberg\DataDogApi\Http\Response\Metrics\QueryResponse
+  Methods:  ( 0/ 0)   Lines:  (  0/  0)
+\Romainnorberg\DataDogApi\Middlewares::Romainnorberg\DataDogApi\Middlewares\Period
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  6/  6)
+\Romainnorberg\DataDogApi\Model\Metrics::Romainnorberg\DataDogApi\Model\Metrics\Point
+  Methods:  ( 0/ 0)   Lines:  (  0/  0)
+\Romainnorberg\DataDogApi\Model\Metrics::Romainnorberg\DataDogApi\Model\Metrics\Serie
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  3/  3)
+\Romainnorberg\DataDogApi\Services::Romainnorberg\DataDogApi\Services\Metrics
+  Methods:   0.00% ( 0/ 4)   Lines:   0.00% (  0/  5)
+\Romainnorberg\DataDogApi\Services::Romainnorberg\DataDogApi\Services\Validate
+  Methods:  50.00% ( 1/ 2)   Lines:  75.00% (  3/  4)
+\Romainnorberg\DataDogApi\Services\Metrics::Romainnorberg\DataDogApi\Services\Metrics\MetricMetadata
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% (  8/  8)
+\Romainnorberg\DataDogApi\Services\Metrics::Romainnorberg\DataDogApi\Services\Metrics\Metrics
+  Methods:  83.33% ( 5/ 6)   Lines:  85.71% ( 12/ 14)
+\Romainnorberg\DataDogApi\Services\Metrics::Romainnorberg\DataDogApi\Services\Metrics\Query
+  Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 36/ 36)
