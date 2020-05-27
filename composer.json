@@ -1,6 +1,6 @@
 {
     "name": "romainnorberg/datadog-api",
-    "description": "Fetch specific metrics from datadog",
+    "description": "The missing DataDog API PHP Wrapper! A lightweight package to fetch metrics from Datadog",
     "keywords": [
         "datadog",
         "datadog-api"
