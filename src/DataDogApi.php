@@ -10,6 +10,7 @@
 namespace Romainnorberg\DataDogApi;
 
 use Romainnorberg\DataDogApi\Exceptions\InvalidCredentials;
+use Romainnorberg\DataDogApi\Services\Downtime;
 use Romainnorberg\DataDogApi\Services\Metrics;
 use Romainnorberg\DataDogApi\Services\Validate;
 use Symfony\Component\Config\FileLocator;
@@ -41,6 +42,11 @@ final class DataDogApi
     public function metrics(): Metrics
     {
         return $this->container->get(Metrics::class);
+    }
+
+    public function downtime(): Downtime
+    {
+        return $this->container->get(Downtime::class);
     }
 
     private function assertCredentials(): void
