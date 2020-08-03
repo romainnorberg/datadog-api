@@ -1,0 +1,46 @@
+[
+    {
+        "recurrence": null,
+        "active": true,
+        "canceled": null,
+        "creator_id": 843974,
+        "disabled": false,
+        "downtime_type": 0,
+        "end": 1594777500,
+        "id": 892179499,
+        "message": "Test downtime",
+        "monitor_id": 8144097,
+        "monitor_tags": [
+            "*"
+        ],
+        "parent_id": null,
+        "scope": [
+            "*"
+        ],
+        "start": 1594777258,
+        "timezone": "Europe\/Brussels",
+        "updater_id": 843974
+    },
+    {
+        "recurrence": null,
+        "active": false,
+        "canceled": null,
+        "creator_id": 843974,
+        "disabled": false,
+        "downtime_type": 0,
+        "end": 1594863900,
+        "id": 892180775,
+        "message": "Test",
+        "monitor_id": 17244297,
+        "monitor_tags": [
+            "*"
+        ],
+        "parent_id": null,
+        "scope": [
+            "*"
+        ],
+        "start": 1594863769,
+        "timezone": "Europe\/Brussels",
+        "updater_id": null
+    }
+]

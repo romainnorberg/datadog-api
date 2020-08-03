@@ -1,6 +1,6 @@
 <p align="center">
     <p align="center">
-        <strong>DO NOT USE YET, PACKAGE IN DEVELOPMENT. NON OFFICIAL PACKAGE</strong>
+        <strong>NON OFFICIAL PACKAGE</strong>
     </p>
     <p align="center">
         <img src=".github/media/logo-horizontal.png?raw=true" width="600" alt="Datadog API">
@@ -18,13 +18,21 @@
 ***
 
 ## Actual scope
-- Metrics  [doc](https://docs.datadoghq.com/api/v1/metrics/)
+- **Metrics**  [doc](https://docs.datadoghq.com/api/v1/metrics/)
     - ✅ Get active list
     - ✅ Get metadata
     - ✅ Query timeseries points
     - ~~Edit metadata~~
     - ~~Search~~
     - ~~Submit metrics~~
+    
+- **Downtimes**  [doc](https://docs.datadoghq.com/fr/api/v1/downtimes/)
+    - ✅ Get all downtimes
+    - ~~Cancel a downtime~~
+    - ~~Cancel downtimes by scope~~
+    - ~~Get a downtime~~
+    - ~~Schedule a downtime~~
+    - ~~Update a downtime~~
 
 ## Installation
 
@@ -48,7 +56,9 @@ $datadogApi = new DataDogApi();
 $datadogApi = new DataDogApi('<apiKey>', '<applicationKey>');
 ```
 
-### Fetching metrics
+### Metrics
+
+#### Fetching metrics
 
 ```php
 use Romainnorberg\DataDogApi\DataDogApi;
@@ -64,7 +74,7 @@ $metrics = $datadogApi
             ->handle();
 ```
 
-### Get max values for a specific period
+#### Get max values for a specific period
 
 |----^-------|
 
@@ -141,6 +151,23 @@ $maxBySerie = $metrics->maxPointBySerie();
      ]
      ...
  */
+```
+
+### Downtimes
+
+#### Get all downtimes
+
+```php
+use Romainnorberg\DataDogApi\DataDogApi;
+
+$datadogApi = new DataDogApi(); // Using env 
+
+$metrics = $datadogApi
+            ->downtime()
+            ->list()
+            //->currentOnly() // Only return downtimes that are active when the request is made.
+            ->handle()
+            ->response();
 ```
 
 ## Testing

@@ -12,6 +12,8 @@ namespace Romainnorberg\DataDogApi\Tests;
 use PHPUnit\Framework\TestCase;
 use Romainnorberg\DataDogApi\DataDogApi;
 use Romainnorberg\DataDogApi\Exceptions\InvalidCredentials;
+use Romainnorberg\DataDogApi\Services\Downtime;
+use Romainnorberg\DataDogApi\Services\Metrics;
 
 class DataDogApiTest extends TestCase
 {
@@ -46,5 +48,36 @@ class DataDogApiTest extends TestCase
         $datadogApi = new DataDogApi();
 
         $this->assertInstanceOf(DataDogApi::class, $datadogApi);
+    }
+
+    /**
+     * @test
+     */
+    public function validate_should_call_validation_invalid_credentials(): void
+    {
+        $this->expectException(InvalidCredentials::class);
+
+        $datadogApi = new DataDogApi();
+        $datadogApi->validate();
+    }
+
+    /**
+     * @test
+     */
+    public function metrics_should_return_service(): void
+    {
+        $datadogApi = new DataDogApi();
+
+        $this->assertInstanceOf(Metrics::class, $datadogApi->metrics());
+    }
+
+    /**
+     * @test
+     */
+    public function downtime_should_return_service(): void
+    {
+        $datadogApi = new DataDogApi();
+
+        $this->assertInstanceOf(Downtime::class, $datadogApi->downtime());
     }
 }
