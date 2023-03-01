@@ -1,0 +1,25 @@
+[
+  {
+    "recurrence": null,
+    "end": 1594777500,
+    "monitor_tags": [
+      "*"
+    ],
+    "canceled": null,
+    "monitor_id": 8144097,
+    "org_id": 187385,
+    "disabled": false,
+    "start": 1594777258,
+    "creator_id": 843974,
+    "parent_id": null,
+    "timezone": "Europe/Brussels",
+    "active": true,
+    "scope": [
+      "*"
+    ],
+    "message": "Test downtime",
+    "downtime_type": 0,
+    "id": 892179499,
+    "updater_id": 843974
+  }
+]
