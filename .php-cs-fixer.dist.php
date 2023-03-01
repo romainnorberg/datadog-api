@@ -12,9 +12,8 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('config')
 ;
 
-return PhpCsFixer\Config::create()
-    ->setRiskyAllowed(true)
-    ->setRules([
+$config = new PhpCsFixer\Config();
+return $config->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
         // Binary operators should be surrounded by space as configured.
