@@ -9,7 +9,6 @@
 
 namespace Romainnorberg\DataDogApi\Services\Tests;
 
-use DateTime;
 use PHPUnit\Framework\TestCase;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 use Romainnorberg\DataDogApi\Services\Metrics\Metrics;
@@ -45,7 +44,7 @@ class MetricsTest extends TestCase
         $service = new Metrics(new MetricsFakeCLient($requestResponse));
 
         return $service
-            ->from(new DateTime())
+            ->from(new \DateTime())
             ->handle();
     }
 }

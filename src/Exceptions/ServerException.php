@@ -9,9 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Exceptions;
 
-use Exception;
-
-final class ServerException extends Exception
+final class ServerException extends \Exception
 {
     public static function gatewayTimeout(string $message, ?int $code = 0): self
     {

@@ -9,8 +9,6 @@
 
 namespace Romainnorberg\DataDogApi\Services\Metrics;
 
-use DateTimeInterface;
-use JsonMapper;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 use Romainnorberg\DataDogApi\Http\Response\Metrics\MetricsResponse;
 use Romainnorberg\DataDogApi\Services\Service;
@@ -18,7 +16,7 @@ use Romainnorberg\DataDogApi\Services\Service;
 class Metrics implements Service
 {
     private ClientInterface $client;
-    private DateTimeInterface $from;
+    private \DateTimeInterface $from;
     private ?string $host = null;
     private string $response;
 
@@ -27,7 +25,7 @@ class Metrics implements Service
         $this->client = $client;
     }
 
-    public function from(DateTimeInterface $from): self
+    public function from(\DateTimeInterface $from): self
     {
         $this->from = $from;
 
@@ -57,9 +55,9 @@ class Metrics implements Service
 
     public function response(): MetricsResponse
     {
-        $mapper = new JsonMapper();
+        $mapper = new \JsonMapper();
 
-        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new MetricsResponse());
+        return $mapper->map(json_decode($this->response, false, 512, \JSON_THROW_ON_ERROR), new MetricsResponse());
     }
 
     public function hasMetric(string $metricName): bool

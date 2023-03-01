@@ -9,9 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Exceptions;
 
-use Exception;
-
-final class QuotaExceeded extends Exception
+final class QuotaExceeded extends \Exception
 {
     /**
      * @param array<string> $headers

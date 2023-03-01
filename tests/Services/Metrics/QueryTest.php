@@ -9,8 +9,6 @@
 
 namespace Romainnorberg\DataDogApi\Services\Tests;
 
-use DateInterval;
-use DateTime;
 use PHPUnit\Framework\TestCase;
 use Romainnorberg\DataDogApi\Exceptions\InvalidPeriod;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
@@ -28,8 +26,8 @@ class QueryTest extends TestCase
 
         $service = new Query(new TimeSerieFakeCLient());
         $service
-            ->from(new DateTime())
-            ->to((new DateTime())->sub(new DateInterval('PT1H')))
+            ->from(new \DateTime())
+            ->to((new \DateTime())->sub(new \DateInterval('PT1H')))
             ->query('avg:worker.memory.heapUsed{*}')
             ->handle();
     }
@@ -42,8 +40,8 @@ class QueryTest extends TestCase
         $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_simple_time_series.json');
         $service = new Query(new TimeSerieFakeCLient($requestResponse));
         $metric = $service
-            ->from(new DateTime())
-            ->to(new DateTime())
+            ->from(new \DateTime())
+            ->to(new \DateTime())
             ->query('avg:worker.memory.heapUsed{*}')
             ->handle();
 
@@ -62,8 +60,8 @@ class QueryTest extends TestCase
         $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_multiple_time_series.json');
         $service = new Query(new TimeSerieFakeCLient($requestResponse));
         $metric = $service
-            ->from(new DateTime())
-            ->to(new DateTime())
+            ->from(new \DateTime())
+            ->to(new \DateTime())
             ->query('system.cpu.idle{*}by{host}')
             ->handle();
 
@@ -82,8 +80,8 @@ class QueryTest extends TestCase
         $requestResponse = file_get_contents(__DIR__.'/../../Fixtures/Http/Response/Metrics/query_empty.json');
         $service = new Query(new TimeSerieFakeCLient($requestResponse));
         $metric = $service
-            ->from(new DateTime())
-            ->to(new DateTime())
+            ->from(new \DateTime())
+            ->to(new \DateTime())
             ->query('system.cpu.idle{*}by{host}')
             ->handle();
 

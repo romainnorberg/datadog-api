@@ -12,9 +12,8 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('config')
 ;
 
-return PhpCsFixer\Config::create()
-    ->setRiskyAllowed(true)
-    ->setRules([
+$config = new PhpCsFixer\Config();
+return $config->setRules([
         '@Symfony' => true,
         '@Symfony:risky' => true,
         // Binary operators should be surrounded by space as configured.
@@ -36,8 +35,11 @@ return PhpCsFixer\Config::create()
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
-        'trailing_comma_in_multiline_array' => true
+        'trailing_comma_in_multiline' => ['elements' => ['arrays']],
+        'php_unit_method_casing' => ['case' => 'snake_case'],
+        'php_unit_test_annotation' => ['style' => 'annotation']
     ])
+    ->setRiskyAllowed(true)
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/.php_cs.cache')
 ;

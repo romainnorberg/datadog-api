@@ -9,7 +9,6 @@
 
 namespace RomainNorberg\DataDogApi\Tests\Http\Request;
 
-use ArgumentCountError;
 use PHPUnit\Framework\TestCase;
 use RomainNorberg\DataDogApi\Exceptions\QuotaExceeded;
 use Romainnorberg\DataDogApi\Http\Client;
@@ -27,7 +26,7 @@ class RequestTest extends TestCase
      */
     public function constructor_has_required_arguments(): void
     {
-        $this->expectException(ArgumentCountError::class);
+        $this->expectException(\ArgumentCountError::class);
 
         new Request();
     }
@@ -48,6 +47,8 @@ class RequestTest extends TestCase
 
 class RequestLimitFakeHttpClient implements HttpClientInterface
 {
+    private HttpClientInterface $client;
+
     public function request(string $method, string $url, array $options = []): ResponseInterface
     {
         $responses = [
@@ -73,5 +74,13 @@ class RequestLimitFakeHttpClient implements HttpClientInterface
 
     public function stream($responses, float $timeout = null): ResponseStreamInterface
     {
+    }
+
+    public function withOptions(array $options): static
+    {
+        $clone = clone $this;
+        $clone->client = $clone->client->withOptions($options);
+
+        return $clone;
     }
 }

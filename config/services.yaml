@@ -14,3 +14,5 @@ services:
     Romainnorberg\DataDogApi\:
       resource: '../src/*'
       exclude: '../src/{DataDogApi.php,Middlewares,Http/Request,Http/Response}'
+
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'

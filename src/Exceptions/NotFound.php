@@ -9,9 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Exceptions;
 
-use Exception;
-
-final class NotFound extends Exception
+final class NotFound extends \Exception
 {
     public static function error(string $message, ?int $code = 0): self
     {
