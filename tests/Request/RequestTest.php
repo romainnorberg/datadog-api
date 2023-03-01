@@ -34,6 +34,11 @@ class RequestTest extends TestCase
             public function stream($responses, float $timeout = null): ResponseStreamInterface
             {
             }
+
+            public function withOptions(array $options): static
+            {
+                // TODO: Implement withOptions() method.
+            }
         };
 
         $request = new Request($httpClient);

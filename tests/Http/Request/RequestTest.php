@@ -48,6 +48,8 @@ class RequestTest extends TestCase
 
 class RequestLimitFakeHttpClient implements HttpClientInterface
 {
+    private HttpClientInterface $client;
+
     public function request(string $method, string $url, array $options = []): ResponseInterface
     {
         $responses = [
@@ -73,5 +75,13 @@ class RequestLimitFakeHttpClient implements HttpClientInterface
 
     public function stream($responses, float $timeout = null): ResponseStreamInterface
     {
+    }
+
+    public function withOptions(array $options): static
+    {
+        $clone = clone $this;
+        $clone->client = $clone->client->withOptions($options);
+
+        return $clone;
     }
 }
