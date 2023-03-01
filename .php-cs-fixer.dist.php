@@ -37,6 +37,7 @@ return $config->setRules([
         'strict_param' => true,
         'trailing_comma_in_multiline' => ['elements' => ['arrays']]
     ])
+    ->setRiskyAllowed(true)
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/.php_cs.cache')
 ;
