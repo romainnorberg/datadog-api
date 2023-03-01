@@ -34,7 +34,7 @@ class Request
         } catch (ClientException $clientException) {
             $response = $clientException->getResponse();
             try {
-                $content = json_decode($response->getContent(false), false, 512, JSON_THROW_ON_ERROR);
+                $content = json_decode($response->getContent(false), false, 512, \JSON_THROW_ON_ERROR);
             } catch (\Exception $exception) {
                 $content = new \stdClass();
                 $content->errors = [];

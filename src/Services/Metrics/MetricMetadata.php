@@ -9,7 +9,6 @@
 
 namespace Romainnorberg\DataDogApi\Services\Metrics;
 
-use JsonMapper;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 use Romainnorberg\DataDogApi\Http\Response\Metrics\MetricMetadataResponse;
 use Romainnorberg\DataDogApi\Services\Service;
@@ -41,8 +40,8 @@ class MetricMetadata implements Service
 
     public function response(): MetricMetadataResponse
     {
-        $mapper = new JsonMapper();
+        $mapper = new \JsonMapper();
 
-        return $mapper->map(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), new MetricMetadataResponse());
+        return $mapper->map(json_decode($this->response, false, 512, \JSON_THROW_ON_ERROR), new MetricMetadataResponse());
     }
 }

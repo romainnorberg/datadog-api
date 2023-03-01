@@ -9,9 +9,7 @@
 
 namespace Romainnorberg\DataDogApi\Exceptions;
 
-use Exception;
-
-final class InvalidCredentials extends Exception
+final class InvalidCredentials extends \Exception
 {
     public static function credentialsAreMissing(): self
     {

@@ -9,7 +9,6 @@
 
 namespace RomainNorberg\DataDogApi\Tests\Http\Request;
 
-use ArgumentCountError;
 use PHPUnit\Framework\TestCase;
 use RomainNorberg\DataDogApi\Exceptions\QuotaExceeded;
 use Romainnorberg\DataDogApi\Http\Client;
@@ -27,7 +26,7 @@ class RequestTest extends TestCase
      */
     public function constructor_has_required_arguments(): void
     {
-        $this->expectException(ArgumentCountError::class);
+        $this->expectException(\ArgumentCountError::class);
 
         new Request();
     }

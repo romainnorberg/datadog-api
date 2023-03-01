@@ -35,7 +35,9 @@ return $config->setRules([
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
-        'trailing_comma_in_multiline' => ['elements' => ['arrays']]
+        'trailing_comma_in_multiline' => ['elements' => ['arrays']],
+        'php_unit_method_casing' => ['case' => 'snake_case'],
+        'php_unit_test_annotation' => ['style' => 'annotation']
     ])
     ->setRiskyAllowed(true)
     ->setFinder($finder)

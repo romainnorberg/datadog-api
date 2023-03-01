@@ -9,7 +9,6 @@
 
 namespace Romainnorberg\DataDogApi\Services\Downtime;
 
-use JsonMapper;
 use Romainnorberg\DataDogApi\Http\ClientInterface;
 use Romainnorberg\DataDogApi\Http\Response\Downtimes\DowntimeResponse;
 use Romainnorberg\DataDogApi\Services\Service;
@@ -44,9 +43,9 @@ class Downtimes implements Service
 
     public function response(): array
     {
-        $mapper = new JsonMapper();
+        $mapper = new \JsonMapper();
 
-        return $mapper->mapArray(json_decode($this->response, false, 512, JSON_THROW_ON_ERROR), [], DowntimeResponse::class);
+        return $mapper->mapArray(json_decode($this->response, false, 512, \JSON_THROW_ON_ERROR), [], DowntimeResponse::class);
     }
 
     public function currentOnly(): self
