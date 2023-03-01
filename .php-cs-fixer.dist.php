@@ -35,7 +35,7 @@ return $config->setRules([
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
-        'trailing_comma_in_multiline_array' => true
+        'trailing_comma_in_multiline' => ['elements' => ['arrays']]
     ])
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/.php_cs.cache')
